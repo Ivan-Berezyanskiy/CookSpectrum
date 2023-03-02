@@ -6,12 +6,13 @@ class DishType(models.Model):
     name = models.CharField(max_length=255)
 
 
+class Cook(AbstractUser):
+    years_of_experience = models.IntegerField()
+
+
 class Dish(models.Model):
     name = models.CharField(max_length=255)
     description = models.TextField()
     price = models.DecimalField()
     dish_type = models.ForeignKey(DishType, on_delete=models.CASCADE)
-
-
-class Cook(AbstractUser):
-    years_of_experience = models.IntegerField()
+    cooks = models.ManyToManyField(Cook, related_name="dishes")
