@@ -16,3 +16,7 @@ class Dish(models.Model):
     price = models.DecimalField(max_digits=7, decimal_places=2)
     dish_type = models.ForeignKey(DishType, on_delete=models.CASCADE)
     cooks = models.ManyToManyField(Cook, related_name="dishes")
+
+    class Meta:
+        verbose_name = "Dish"
+        verbose_name_plural = "Dishes"
