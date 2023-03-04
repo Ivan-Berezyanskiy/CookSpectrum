@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
-  <title>Kitchen</title>
-  {% load static %}
-  <link rel="stylesheet" href="{% static "css/styles.css" %}">
+  <head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <title>Kitchen</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
 
-</head>
-<body>
-  {% include "includes/header.html" %}
-  {% block content %}{% endblock %}
-  <footer>Kitchen service 2023</footer>
-</body>
+  </head>
+  <body>
+    {% include "includes/header.html" %}
+    <div class="content">{% block content %}{% endblock %}</div>
+    {% include "includes/footer.html" %}
+  </body>
 </html>
