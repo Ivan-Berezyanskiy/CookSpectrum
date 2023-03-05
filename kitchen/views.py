@@ -22,6 +22,34 @@ def index(request):
 
 class CookListView(generic.ListView):
     model = Cook
+    
+
+class CookDetailView(generic.DetailView):
+    model = Cook
+
+    def get_context_data(self, *args, **kwargs):
+        context = super(CookDetailView, self).get_context_data(*args, **kwargs)
+        context["user.id"] = self.request.user.id
+        return context
+
+
+class CookCreateView(generic.CreateView):
+    model = Cook
+    fields = "__all__"
+    success_url = reverse_lazy("kitchen:cook-list")
+
+
+class CookUpdateView(generic.UpdateView):
+    model = Cook
+    fields = "__all__"
+
+    def get_success_url(self):
+        return reverse_lazy("kitchen:cook-detail", kwargs={"pk": self.kwargs["pk"]})
+
+
+class CookDeleteView(generic.DeleteView):
+    model = Cook
+    success_url = reverse_lazy("kitchen:cook-list")
 
 
 class DishTypeListView(generic.ListView):
@@ -39,7 +67,7 @@ class DishTypeDetailView(generic.DetailView):
 class DishTypeCreateView(generic.CreateView):
     model = DishType
     fields = "__all__"
-    success_url = reverse_lazy("kitchen:dish-types-list")
+    success_url = reverse_lazy("kitchen:dish-type-list")
     template_name = "kitchen/dish_type_form.html"
 
 
@@ -49,12 +77,12 @@ class DishTypeUpdateView(generic.UpdateView):
     template_name = "kitchen/dish_type_form.html"
 
     def get_success_url(self):
-        return reverse_lazy("kitchen:dish-types-detail", kwargs={"pk": self.kwargs["pk"]})
+        return reverse_lazy("kitchen:dish-type-detail", kwargs={"pk": self.kwargs["pk"]})
 
 
 class DishTypeDeleteView(generic.DeleteView):
     model = DishType
-    success_url = reverse_lazy("kitchen:dish-types-list")
+    success_url = reverse_lazy("kitchen:dish-type-list")
     template_name = "kitchen/dish_type_confirm_delete.html"
 
 

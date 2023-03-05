@@ -4,7 +4,7 @@
   <h1>Cook List</h1>
   {% if cook_list %}
     {% for cook in cook_list %}
-      <li>Username: {{ cook.username }}(Years of experience: {{ cook.years_of_experience }})</li>
+      <li>Username: <a href="{% url "kitchen:cook-detail" pk=cook.id %}">{{ cook.username }}</a>(Years of experience: {{ cook.years_of_experience }})</li>
     {% endfor %}
   {% else %}
     <h3>No cooks(</h3>
