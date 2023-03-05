@@ -58,3 +58,4 @@ class DishTypeDeleteView(generic.DeleteView):
 
 class DishListView(generic.ListView):
     model = Dish
+    queryset = Dish.objects.prefetch_related("dish_type")
