@@ -3,15 +3,22 @@
 {% block content %}
   <h1>Cook Detail</h1>
   <h3>Username: {{ cook.username }}</h3>
-  <hr>
-  <h5>Name: {{ cook.last_name }} {{ cook.first_name }}</h5>
+  {% if cook.last_name or cook.first_name %}
+    <hr>
+    <h5>Name: {% if cook.last_name %}{{ cook.last_name }}{% endif %}
+      {% if cook.first_name %}{{ cook.first_name }}{% endif %}</h5>
+  {% endif %}
   <hr>
   <h5>Years of experience: {{ cook.years_of_experience }}</h5>
   <hr>
   <h5>Dishes: </h5>
-  {% for dish in cook.dishes.all %}
-    <p><a href="{% url "kitchen:dish-detail" pk=dish.id %}">{{ dish.name }}</a></p>
-  {% endfor %}
+  {% if cook.dishes.all %}
+    {% for dish in cook.dishes.all %}
+      <p><a href="{% url "kitchen:dish-detail" pk=dish.id %}">{{ dish.name }}</a></p>
+    {% endfor %}
+  {% else %}
+    <p>No dishes(</p>
+  {% endif %}
   {% if user.id == cook.id %}
     <a class="btn btn-primary" href="{% url "kitchen:cook-update" pk=cook.id %}">Update</a>
     <a class="btn btn-danger" href="{% url "kitchen:cook-delete" pk=cook.id %}">Delete</a>
