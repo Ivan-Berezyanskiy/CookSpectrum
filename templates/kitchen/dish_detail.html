@@ -1,8 +1,20 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <h1>Dish type Detail</h1>
-  <h3>Name: {{ dish_detail.name }}</h3>
+  <h1>Dish Detail</h1>
+  <h3>Name: {{ dish.name }}</h3>
+  <hr>
+  <h5>Price: {{ dish.price }}</h5>
+  <hr>
+  <h5>Dish type: {{ dish.dish_type.name }}</h5>
+  <hr>
+  <h5>Description: </h5>
+  <p>{{ dish.description }}</p>
+  <hr>
+  <h5>Cooks: </h5>
+  {% for cook in dish.cooks.all %}
+    <p>{{ cook.username }}</p>
+  {% endfor %}
   <a class="btn btn-primary" href="{% url "kitchen:dish-update" pk=dish.id %}">Update</a>
   <a class="btn btn-danger" href="{% url "kitchen:dish-delete" pk=dish.id %}">Delete</a>
 {% endblock %}
