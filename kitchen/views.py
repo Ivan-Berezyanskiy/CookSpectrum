@@ -46,16 +46,41 @@ class DishTypeCreateView(generic.CreateView):
 class DishTypeUpdateView(generic.UpdateView):
     model = DishType
     fields = "__all__"
-    success_url = reverse_lazy("kitchen:dish-types-list")
     template_name = "kitchen/dish_type_form.html"
+
+    def get_success_url(self):
+        return reverse_lazy("kitchen:dish-types-detail", kwargs={"pk": self.kwargs["pk"]})
 
 
 class DishTypeDeleteView(generic.DeleteView):
     model = DishType
     success_url = reverse_lazy("kitchen:dish-types-list")
-    template_name = "kitchen/dish_type_delete.html"
+    template_name = "kitchen/dish_type_confirm_delete.html"
 
 
 class DishListView(generic.ListView):
     model = Dish
     queryset = Dish.objects.prefetch_related("dish_type")
+
+
+class DishDetailView(generic.DetailView):
+    model = Dish
+
+
+class DishCreateView(generic.CreateView):
+    model = Dish
+    fields = "__all__"
+    success_url = reverse_lazy("kitchen:dish-list")
+
+
+class DishUpdateView(generic.UpdateView):
+    model = Dish
+    fields = "__all__"
+
+    def get_success_url(self):
+        return reverse_lazy("kitchen:dish-detail", kwargs={"pk": self.kwargs["pk"]})
+
+
+class DishDeleteView(generic.DeleteView):
+    model = Dish
+    success_url = reverse_lazy("kitchen:dish-list")

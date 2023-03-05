@@ -5,9 +5,17 @@ from django.db import models
 class DishType(models.Model):
     name = models.CharField(max_length=255)
 
+    class Meta:
+        verbose_name = "DishType"
+        verbose_name_plural = "DishTypes"
+
 
 class Cook(AbstractUser):
     years_of_experience = models.IntegerField()
+
+    class Meta:
+        verbose_name = "Cook"
+        verbose_name_plural = "Cooks"
 
 
 class Dish(models.Model):
