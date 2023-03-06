@@ -1,7 +1,9 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.db.models import QuerySet
 from django.shortcuts import render
 from django.urls import reverse_lazy
 
+from .forms import DishTypeSearchForm, CookSearchForm, DishSearchForm, CookCreationForm
 from .models import Cook, DishType, Dish
 from django.views import generic
 
@@ -24,10 +26,35 @@ def index(request):
 class CookListView(LoginRequiredMixin, generic.ListView):
     paginate_by = 3
     model = Cook
+
+    def get_context_data(self, *, object_list=None, **kwargs) -> object:
+        context = super(CookListView, self).get_context_data(**kwargs)
+
+        context["search_form"] = CookSearchForm
+
+        return context
+
+    def get_queryset(self) -> QuerySet:
+        queryset = Cook.objects
+
+        form = CookSearchForm(self.request.GET)
+
+        if form.is_valid():
+            return queryset.filter(
+                username__icontains=form.cleaned_data["username"]
+            )
+
+        return queryset
     
 
 class CookDetailView(LoginRequiredMixin, generic.DetailView):
     model = Cook
+
+
+class CookCreateView(generic.CreateView):
+    model = Cook
+    form_class = CookCreationForm
+    success_url = reverse_lazy("kitchen:index")
 
 
 class CookUpdateView(LoginRequiredMixin, generic.UpdateView):
@@ -48,6 +75,25 @@ class DishTypeListView(LoginRequiredMixin, generic.ListView):
     model = DishType
     context_object_name = "dish_type_list"
     template_name = "kitchen/dish_type_list.html"
+
+    def get_context_data(self, *, object_list=None, **kwargs) -> object:
+        context = super(DishTypeListView, self).get_context_data(**kwargs)
+
+        context["search_form"] = DishTypeSearchForm
+
+        return context
+
+    def get_queryset(self) -> QuerySet:
+        queryset = DishType.objects
+
+        form = DishTypeSearchForm(self.request.GET)
+
+        if form.is_valid():
+            return queryset.filter(
+                name__icontains=form.cleaned_data["name"]
+            )
+
+        return queryset
 
 
 class DishTypeDetailView(LoginRequiredMixin, generic.DetailView):
@@ -80,8 +126,26 @@ class DishTypeDeleteView(LoginRequiredMixin, generic.DeleteView):
 
 class DishListView(LoginRequiredMixin, generic.ListView):
     model = Dish
-    queryset = Dish.objects.prefetch_related("dish_type")
     paginate_by = 3
+
+    def get_context_data(self, *, object_list=None, **kwargs) -> object:
+        context = super(DishListView, self).get_context_data(**kwargs)
+
+        context["search_form"] = DishSearchForm
+
+        return context
+
+    def get_queryset(self) -> QuerySet:
+        queryset = Dish.objects.prefetch_related("dish_type")
+
+        form = DishSearchForm(self.request.GET)
+
+        if form.is_valid():
+            return queryset.filter(
+                name__icontains=form.cleaned_data["name"]
+            )
+
+        return queryset
 
 
 class DishDetailView(LoginRequiredMixin, generic.DetailView):
