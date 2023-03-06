@@ -22,6 +22,7 @@ def index(request):
 
 
 class CookListView(LoginRequiredMixin, generic.ListView):
+    paginate_by = 3
     model = Cook
     
 
@@ -43,6 +44,7 @@ class CookDeleteView(LoginRequiredMixin, generic.DeleteView):
 
 
 class DishTypeListView(LoginRequiredMixin, generic.ListView):
+    paginate_by = 3
     model = DishType
     context_object_name = "dish_type_list"
     template_name = "kitchen/dish_type_list.html"
@@ -79,6 +81,7 @@ class DishTypeDeleteView(LoginRequiredMixin, generic.DeleteView):
 class DishListView(LoginRequiredMixin, generic.ListView):
     model = Dish
     queryset = Dish.objects.prefetch_related("dish_type")
+    paginate_by = 3
 
 
 class DishDetailView(LoginRequiredMixin, generic.DetailView):

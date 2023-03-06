@@ -8,6 +8,7 @@ class DishType(models.Model):
     class Meta:
         verbose_name = "DishType"
         verbose_name_plural = "DishTypes"
+        ordering = ["name"]
 
 
 class Cook(AbstractUser):
@@ -16,6 +17,7 @@ class Cook(AbstractUser):
     class Meta:
         verbose_name = "Cook"
         verbose_name_plural = "Cooks"
+        ordering = ["username"]
 
 
 class Dish(models.Model):
@@ -28,3 +30,4 @@ class Dish(models.Model):
     class Meta:
         verbose_name = "Dish"
         verbose_name_plural = "Dishes"
+        ordering = ["name"]
