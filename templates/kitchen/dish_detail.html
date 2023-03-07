@@ -15,6 +15,17 @@
   {% for cook in dish.cooks.all %}
     <p><a href="{% url "kitchen:cook-detail" pk=cook.id %}">{{ cook.username }}</a></p>
   {% endfor %}
-  <a class="btn btn-primary" href="{% url "kitchen:dish-update" pk=dish.id %}">Update</a>
-  <a class="btn btn-danger" href="{% url "kitchen:dish-delete" pk=dish.id %}">Delete</a>
+  {% if dish in user.dishes.all %}
+      <a href="{% url "kitchen:toggle_assign_to_dish" pk=dish.id %}" class="btn btn-danger link-to-page">
+        Delete dish in profile
+      </a>
+    {% else %}
+      <a href="{% url "kitchen:toggle_assign_to_dish" pk=dish.id %}" class="btn btn-success link-to-page">
+        Add dish in profile
+      </a>
+  {% endif %}
+  {% if user.is_superuser %}
+    <a class="btn btn-primary" href="{% url "kitchen:dish-update" pk=dish.id %}">Update</a>
+    <a class="btn btn-danger" href="{% url "kitchen:dish-delete" pk=dish.id %}">Delete</a>
+  {% endif  %}
 {% endblock %}
