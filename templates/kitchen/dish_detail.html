@@ -24,8 +24,6 @@
         Add dish in profile
       </a>
   {% endif %}
-  {% if user.is_superuser %}
-    <a class="btn btn-primary" href="{% url "kitchen:dish-update" pk=dish.id %}">Update</a>
-    <a class="btn btn-danger" href="{% url "kitchen:dish-delete" pk=dish.id %}">Delete</a>
-  {% endif  %}
+  <a class="btn btn-primary" href="{% url "kitchen:dish-update" pk=dish.id %}">Update</a>
+  <a class="btn btn-danger" href="{% url "kitchen:dish-delete" pk=dish.id %}">Delete</a>
 {% endblock %}

@@ -3,8 +3,6 @@
 {% block content %}
   <h1>Dish type Detail</h1>
   <h3>Name: {{ dish_type_detail.name }}</h3>
-  {% if obj.is_superuser %}
-    <a class="btn btn-primary" href="{% url "kitchen:dish-type-update" pk=dish_type_detail.id %}">Update</a>
-    <a class="btn btn-danger" href="{% url "kitchen:dish-type-delete" pk=dish_type_detail.id %}">Delete</a>
-  {% endif %}
+  <a class="btn btn-primary" href="{% url "kitchen:dish-type-update" pk=dish_type_detail.id %}">Update</a>
+  <a class="btn btn-danger" href="{% url "kitchen:dish-type-delete" pk=dish_type_detail.id %}">Delete</a>
 {% endblock %}

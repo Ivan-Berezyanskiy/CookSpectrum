@@ -37,10 +37,6 @@ body {
   padding: 35px 20px;
 }
 /* CSS for main section */
-.main {
-  height: calc(100vh - var(--header-height) - var(--footer-height) - var(--footer-height));
-}
-
 .intro {
   display: flex;
   flex-direction: column;
