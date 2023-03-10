@@ -33,3 +33,9 @@ python manage.py runserver #starts Django Server
 * Powerful admin panel for advanced managing
 
 ## Demo
+
+![Website Interface](home.png)
+![Website Interface](cook.png)
+![Website Interface](dish_list.png)
+![Website Interface](dish_update.png)
+![Website Interface](dish_delete.png)
