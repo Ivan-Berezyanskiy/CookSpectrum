@@ -8,3 +8,6 @@ db.sqlite3
 *.iml
 .env
 .DS_Store
+requirements.txt
+demo
+.flake8
