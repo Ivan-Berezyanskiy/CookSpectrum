@@ -5,7 +5,12 @@ from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from django.urls import reverse_lazy
 
-from .forms import DishTypeSearchForm, CookSearchForm, DishSearchForm, CookCreationForm
+from .forms import (
+    DishTypeSearchForm,
+    CookSearchForm,
+    DishSearchForm,
+    CookCreationForm
+)
 from .models import Cook, DishType, Dish
 from django.views import generic
 
@@ -48,7 +53,7 @@ class CookListView(LoginRequiredMixin, generic.ListView):
             )
 
         return queryset
-    
+
 
 class CookDetailView(LoginRequiredMixin, generic.DetailView):
     model = Cook
@@ -110,7 +115,10 @@ class DishTypeUpdateView(LoginRequiredMixin, generic.UpdateView):
     template_name = "kitchen/dish_type_form.html"
 
     def get_success_url(self):
-        return reverse_lazy("kitchen:dish-type-detail", kwargs={"pk": self.kwargs["pk"]})
+        return reverse_lazy(
+            "kitchen:dish-type-detail",
+            kwargs={"pk": self.kwargs["pk"]}
+        )
 
 
 class DishTypeDeleteView(LoginRequiredMixin, generic.DeleteView):
@@ -158,7 +166,10 @@ class DishUpdateView(LoginRequiredMixin, generic.UpdateView):
     fields = "__all__"
 
     def get_success_url(self):
-        return reverse_lazy("kitchen:dish-detail", kwargs={"pk": self.kwargs["pk"]})
+        return reverse_lazy(
+            "kitchen:dish-detail",
+            kwargs={"pk": self.kwargs["pk"]}
+        )
 
 
 class DishDeleteView(LoginRequiredMixin, generic.DeleteView):

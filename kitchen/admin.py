@@ -35,4 +35,3 @@ class DishAdmin(admin.ModelAdmin):
 class DishTypeAdmin(admin.ModelAdmin):
     list_display = ("name",)
     search_fields = ("name",)
-

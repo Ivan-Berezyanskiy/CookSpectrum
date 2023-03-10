@@ -1,13 +1,14 @@
-<nav class="nav">
-  {% if user.is_authenticated %}
-    <a href="{% url "kitchen:cook-detail" pk=user.id %}" class="nav__link">{{ user.username }}</a>
-    <a href="{% url "logout" %}" class="nav__link">Logout</a>
-  {% else %}
-    <a href="{% url "kitchen:registration" %}" class="nav__link">Register</a>
-    <a href="{% url "login" %}" class="nav__link">Login</a>
-  {% endif %}
-  <a href="{% url "kitchen:index" %}" class="nav__link">Home</a>
-  <a href="{% url "kitchen:cook-list"%}" class="nav__link">Cooks</a>
-  <a href="{% url "kitchen:dish-type-list"%}" class="nav__link">DishTypes</a>
-  <a href="{% url "kitchen:dish-list"%}" class="nav__link">Dishes</a>
-</nav>
+<header class="header">
+  <a href="{% url "kitchen:index" %}" class="logo">Kitchen-Service</a>
+  <nav class="nav-items">
+    {% if user.is_authenticated %}
+      <a href="{% url "kitchen:cook-list" %}">Cooks</a>
+      <a href="{% url "kitchen:dish-list" %}">Dishes</a>
+      <a href="{% url "kitchen:dish-type-list" %}">Dish Types</a>
+      <a href="{% url "logout" %}">Logout</a>
+      <a href="{% url "kitchen:cook-detail" pk=user.id %}">User:{{ user.username }}</a>
+    {% else %}
+      <a href="{% url "login" %}">Login</a>
+    {% endif %}
+  </nav>
+</header>

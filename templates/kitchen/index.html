@@ -1,10 +1,24 @@
 {% extends "base.html" %}
 
 {% block content %}
-  Kitchen service
-  <ul>
-    <li>num_dishes: {{ num_dishes }}</li>
-    <li>num_dishtypes: {{ num_dishtypes }}</li>
-    <li>num_cooks: {{ num_cooks }}
-  </ul>
+  <div class="intro">
+    <h1>Kitchen Service</h1>
+  </div>
+  <div class="achievements">
+    <div class="work">
+      {{ num_cooks }}
+      <p class="work-heading">Cooks</p>
+      <p class="work-text">We have a great team of cooks</p>
+    </div>
+    <div class="work">
+      {{ num_dishes }}
+      <p class="work-heading">Dishes</p>
+      <p class="work-text">We have a great dishes</p>
+    </div>
+    <div class="work">
+      {{ num_dishtypes }}
+      <p class="work-heading">Dish Types</p>
+      <p class="work-text">We have a great dish types</p>
+    </div>
+  </div>
 {% endblock %}
