@@ -35,7 +35,7 @@ python manage.py runserver #starts Django Server
 ## Demo
 
 ![Website Interface](demo/home.png)
-![Website Interface](cook.png)
-![Website Interface](dish_list.png)
-![Website Interface](dish_update.png)
-![Website Interface](dish_delete.png)
+![Website Interface](demo/cook.png)
+![Website Interface](demo/dish_list.png)
+![Website Interface](demo/dish_update.png)
+![Website Interface](demo/dish_delete.png)
