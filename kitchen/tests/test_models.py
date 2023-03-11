@@ -5,12 +5,12 @@ from kitchen.models import Dish, DishType, Cook
 
 class ModelDishTypeTests(TestCase):
     def test_str(self):
-        dishType = DishType.objects.create(
+        dishtype = DishType.objects.create(
             name="Antarctica"
         )
         self.assertEqual(
-            DishType.__str__(),
-            {dishType.name}
+            dishtype.__str__(),
+            dishtype.name
         )
 
 
@@ -26,7 +26,10 @@ class ModelCookTests(TestCase):
         )
 
     def test_years_of_experience(self):
-        self.assertEqual(self.cook_.years_of_experience, self.years_of_experience_)
+        self.assertEqual(
+            self.cook_.years_of_experience,
+            self.years_of_experience_
+        )
 
     def test_str(self):
         self.assertEqual(
@@ -42,7 +45,8 @@ class ModelDishTests(TestCase):
         )
 
         dish = Dish.objects.create(
-            model="TestModel",
-            DishType=dishtype_
+            price=40,
+            name="TestModel",
+            dish_type=dishtype_
         )
-        self.assertEqual(Dish.__str__(), dish.name)
+        self.assertEqual(dish.__str__(), dish.name)
