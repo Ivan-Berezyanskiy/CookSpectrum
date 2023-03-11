@@ -10,6 +10,9 @@ class DishType(models.Model):
         verbose_name_plural = "DishTypes"
         ordering = ["name"]
 
+    def __str__(self):
+        return self.name
+
 
 class Cook(AbstractUser):
     years_of_experience = models.IntegerField()
@@ -18,6 +21,9 @@ class Cook(AbstractUser):
         verbose_name = "Cook"
         verbose_name_plural = "Cooks"
         ordering = ["username"]
+
+    def __str__(self):
+        return f"{self.username} ({self.first_name} {self.last_name})"
 
 
 class Dish(models.Model):
@@ -31,3 +37,6 @@ class Dish(models.Model):
         verbose_name = "Dish"
         verbose_name_plural = "Dishes"
         ordering = ["name"]
+
+    def __str__(self):
+        return self.name

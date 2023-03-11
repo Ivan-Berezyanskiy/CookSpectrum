@@ -23,7 +23,6 @@ source venv/bin/activate  # on macOS
 venv\Scripts\activate  # on Windows 
 pip install -r requirements.txt
 python manage.py migrate
-python manage.py loaddata data.json
 python manage.py runserver #starts Django Server
 ```
 
