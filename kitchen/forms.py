@@ -5,7 +5,6 @@ from kitchen.models import Cook
 
 
 class CookCreationForm(UserCreationForm):
-
     class Meta(UserCreationForm.Meta):
         model = Cook
         fields = UserCreationForm.Meta.fields + (

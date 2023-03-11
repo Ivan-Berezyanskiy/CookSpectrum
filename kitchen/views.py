@@ -4,6 +4,7 @@ from django.db.models import QuerySet
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from django.urls import reverse_lazy
+from django.views import generic
 
 from .forms import (
     DishTypeSearchForm,
@@ -12,7 +13,6 @@ from .forms import (
     CookCreationForm
 )
 from .models import Cook, DishType, Dish
-from django.views import generic
 
 
 @login_required
@@ -181,7 +181,7 @@ class DishDeleteView(LoginRequiredMixin, generic.DeleteView):
 def toggle_assign_to_dish(request, pk):
     cook = Cook.objects.get(id=request.user.id)
     if (
-        Dish.objects.get(id=pk) in cook.dishes.all()
+            Dish.objects.get(id=pk) in cook.dishes.all()
     ):
         cook.dishes.remove(pk)
     else:
