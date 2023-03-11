@@ -16,7 +16,7 @@ from kitchen.views import (
     DishCreateView,
     DishUpdateView,
     DishDeleteView,
-    toggle_assign_to_dish,
+    ToggleAssignToDish,
 )
 
 urlpatterns = [
@@ -37,7 +37,7 @@ urlpatterns = [
         name="registration",
     ),
     path(
-        "cooks/<int:pk>/delete",
+        "cooks/<int:pk>/delete/",
         CookDeleteView.as_view(),
         name="cook-delete",
     ),
@@ -52,17 +52,17 @@ urlpatterns = [
         name="dish-type-detail",
     ),
     path(
-        "dish-types/create",
+        "dish-types/create/",
         DishTypeCreateView.as_view(),
         name="dish-type-create",
     ),
     path(
-        "dish-types/<int:pk>/update",
+        "dish-types/<int:pk>/update/",
         DishTypeUpdateView.as_view(),
         name="dish-type-update",
     ),
     path(
-        "dish-types/<int:pk>/delete",
+        "dish-types/<int:pk>/delete/",
         DishTypeDeleteView.as_view(),
         name="dish-type-delete",
     ),
@@ -77,24 +77,24 @@ urlpatterns = [
         name="dish-detail",
     ),
     path(
-        "dishes/create",
+        "dishes/create/",
         DishCreateView.as_view(),
         name="dish-create",
     ),
     path(
-        "dishes/<int:pk>/update",
+        "dishes/<int:pk>/update/",
         DishUpdateView.as_view(),
         name="dish-update",
     ),
     path(
-        "dishes/<int:pk>/delete",
+        "dishes/<int:pk>/delete/",
         DishDeleteView.as_view(),
         name="dish-delete",
     ),
     path(
         "dishes/<int:pk>/toggle-assign-to-dish/",
-        toggle_assign_to_dish,
-        name="toggle_assign_to_dish",
+        ToggleAssignToDish.as_view(),
+        name="toggle-assign-to-dish",
     )
 ]
 

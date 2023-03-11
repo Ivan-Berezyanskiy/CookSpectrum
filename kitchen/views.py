@@ -4,7 +4,7 @@ from django.db.models import QuerySet
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from django.urls import reverse_lazy
-from django.views import generic
+from django.views import generic, View
 
 from .forms import (
     DishTypeSearchForm,
@@ -35,7 +35,7 @@ class CookListView(LoginRequiredMixin, generic.ListView):
     paginate_by = 3
     model = Cook
 
-    def get_context_data(self, *, object_list=None, **kwargs) -> object:
+    def get_context_data(self, *, object_list=None, **kwargs) -> dict:
         context = super(CookListView, self).get_context_data(**kwargs)
 
         context["search_form"] = CookSearchForm
@@ -76,7 +76,7 @@ class DishTypeListView(LoginRequiredMixin, generic.ListView):
     context_object_name = "dish_type_list"
     template_name = "kitchen/dish_type_list.html"
 
-    def get_context_data(self, *, object_list=None, **kwargs) -> object:
+    def get_context_data(self, *, object_list=None, **kwargs) -> dict:
         context = super(DishTypeListView, self).get_context_data(**kwargs)
 
         context["search_form"] = DishTypeSearchForm
@@ -131,7 +131,7 @@ class DishListView(LoginRequiredMixin, generic.ListView):
     model = Dish
     paginate_by = 3
 
-    def get_context_data(self, *, object_list=None, **kwargs) -> object:
+    def get_context_data(self, *, object_list=None, **kwargs) -> dict:
         context = super(DishListView, self).get_context_data(**kwargs)
 
         context["search_form"] = DishSearchForm
@@ -177,13 +177,16 @@ class DishDeleteView(LoginRequiredMixin, generic.DeleteView):
     success_url = reverse_lazy("kitchen:dish-list")
 
 
-@login_required
-def toggle_assign_to_dish(request, pk):
-    cook = Cook.objects.get(id=request.user.id)
-    if (
-            Dish.objects.get(id=pk) in cook.dishes.all()
-    ):
-        cook.dishes.remove(pk)
-    else:
-        cook.dishes.add(pk)
-    return HttpResponseRedirect(reverse_lazy("kitchen:dish-detail", args=[pk]))
+class ToggleAssignToDish(LoginRequiredMixin, View):
+    def get(self, request, pk):
+        cook = Cook.objects.get(
+            id=request.user.id
+        )
+        if Dish.objects.get(id=pk) in cook.dishes.all():
+            cook.dishes.remove(pk)
+        else:
+            cook.dishes.add(pk)
+
+        return HttpResponseRedirect(
+            reverse_lazy("kitchen:dish-detail", args=[pk])
+        )
