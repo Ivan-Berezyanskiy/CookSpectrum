@@ -1,0 +1,329 @@
+[
+{
+  "model": "kitchen.cook",
+  "pk": 1,
+  "fields": {
+    "password": "pbkdf2_sha256$390000$ShPKaXw4ShklQVR7E2oXKF$otkBMe182HJHCTfUohGbpNsEmdEFllz5IZsSvAy3ABg=",
+    "last_login": "2023-02-11T14:15:20.279Z",
+    "is_superuser": true,
+    "username": "Admin",
+    "first_name": "Mykola",
+    "last_name": "Zakharov",
+    "email": "kolyazakharov94@gmail.com",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2023-01-29T19:10:39Z",
+    "years_of_experience": 1,
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "kitchen.cook",
+  "pk": 2,
+  "fields": {
+    "password": "pbkdf2_sha256$390000$ihHRVo4AhsudFb5Eczup9u$3qNHXrAn3KdatUuCeAKnLS3hhfz7Jl+hZi9+2l2Jg08=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "RomanKa",
+    "first_name": "Roman",
+    "last_name": "Kashtalyan",
+    "email": "romankashtalyan@gmail.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2023-01-30T20:16:53Z",
+    "years_of_experience": 2,
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "kitchen.cook",
+  "pk": 3,
+  "fields": {
+    "password": "pbkdf2_sha256$390000$7FgsHSoNfavg7n59OAD2ry$bH3y3UhUy1fEtw42hviDvN2cjZYy77Y1Hxm2kklp5Fg=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "VladLev",
+    "first_name": "Vladislav",
+    "last_name": "Levishko",
+    "email": "vladlevsia@gmail.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2023-01-30T20:17:55Z",
+    "years_of_experience": 1,
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "kitchen.cook",
+  "pk": 4,
+  "fields": {
+    "password": "pbkdf2_sha256$390000$qmZjhg3GAMAxcMD1wD1jPK$PNX03dEBzPhQtcscR4YEqopbT1+TYxgYxSd6wxlT3VA=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "SylyaevK",
+    "first_name": "Mykola",
+    "last_name": "Sylyaev",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2023-02-01T15:31:09.820Z",
+    "years_of_experience": 4,
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "kitchen.cook",
+  "pk": 5,
+  "fields": {
+    "password": "pbkdf2_sha256$390000$AU6HEyb3I7bcrHxUPRyD8g$Gh10Vgp971BSONMyzXnXzhYkxA+E1siTIZZylXr3V6g=",
+    "last_login": "2023-02-05T20:59:54.180Z",
+    "is_superuser": false,
+    "username": "KDarina",
+    "first_name": "Darina",
+    "last_name": "Kozik",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2023-02-01T15:32:35Z",
+    "years_of_experience": 1,
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "kitchen.cook",
+  "pk": 9,
+  "fields": {
+    "password": "pbkdf2_sha256$390000$WXvAvNmN7C75NDSoysQ5kp$zAUCTASZqToFeogZkkhGEIxLaXkd5ifd7hSuKna7BF8=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "DmytroNagaicev1",
+    "first_name": "Dmytro",
+    "last_name": "Nagaicev",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2023-02-04T16:19:51.065Z",
+    "years_of_experience": 4,
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "kitchen.cook",
+  "pk": 11,
+  "fields": {
+    "password": "pbkdf2_sha256$390000$zqEewy6QwqxsPOvLmKjUY2$DG6g/gcywBCVFGH5Kd7lcXwY1oYFbFKsdhkeEmNGDbo=",
+    "last_login": null,
+    "is_superuser": true,
+    "username": "dmin",
+    "first_name": "dmin",
+    "last_name": "dmin",
+    "email": "dmin@kitchen.com",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2023-02-13T13:01:06.136Z",
+    "years_of_experience": 5,
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "kitchen.dish",
+  "pk": 4,
+  "fields": {
+    "name": "Carbonara",
+    "description": "Pasta carbonara is the most popular Italian pasta in the world. The secret of its popularity is not only in the availability of ingredients and cooking time. The main thing is the unique taste - creamy and delicate, although real carbonara pasta is prepared without cream. It is important to follow the cooking recipe in order to get the right sauce.",
+    "price": "12.00",
+    "dish_type": 1,
+    "cooks": [
+      5,
+      1,
+      2
+    ]
+  }
+},
+{
+  "model": "kitchen.dish",
+  "pk": 5,
+  "fields": {
+    "name": "Rome bucattini",
+    "description": "Translated from Italian, \"bucato\" means full of holes. This long paste looks like a straw. The ideal sauce for bucatini is Amatriciana with loin and tomatoes. Although with other sauces it is no less tasty.",
+    "price": "14.00",
+    "dish_type": 1,
+    "cooks": [
+      1
+    ]
+  }
+},
+{
+  "model": "kitchen.dish",
+  "pk": 10,
+  "fields": {
+    "name": "Bolognese",
+    "description": "Perhaps the most famous Italian dish in the world is pasta with Bolognese sauce. Made with durum wheat pasta cooked with a delicious sauce based on tomatoes, ground beef and red wine. The sauce for this dish comes from Bologna, the city that is the unofficial gastronomic capital of Italy. That's why it's called Bolognese. The dish is very easy to prepare, which is why Italians adore it so much.",
+    "price": "14.00",
+    "dish_type": 1,
+    "cooks": [
+      9
+    ]
+  }
+},
+{
+  "model": "kitchen.dish",
+  "pk": 11,
+  "fields": {
+    "name": "Margarita",
+    "description": "The archetype of a thin-crust pizza pie, a pizza margherita adorned simply in the colors of the Italian flag: green from basil, white from mozzarella, red from tomato sauce. This pizza is adapted from the recipe used by the staff at Roberta’s restaurant in Brooklyn, who make their tomato sauce simply by whizzing together canned tomatoes, a drizzle of olive oil and a pinch of salt.",
+    "price": "7.00",
+    "dish_type": 17,
+    "cooks": [
+      2
+    ]
+  }
+},
+{
+  "model": "kitchen.dish",
+  "pk": 12,
+  "fields": {
+    "name": "Paperoni",
+    "description": "The classic composition of pizza in which there is nothing superfluous: spicy pepperoni sausages with light peppercorns, mozzarella cheese with a creamy taste and delicate tomato sauce. Pizza base on traditional thin Italian dough with spicy tomato sauce for pizza, which we cook with Italian herbs and spices.",
+    "price": "8.00",
+    "dish_type": 17,
+    "cooks": [
+      3
+    ]
+  }
+},
+{
+  "model": "kitchen.dish",
+  "pk": 13,
+  "fields": {
+    "name": "Spicy pizza with steak",
+    "description": "Spicy pizza with steak is made from seasoned handmade puff pastry with selected meat. In terms of spiciness, it is a bit like the famous Diabola pizza. The Italians make Diabola with salami and Calabrian pepper, a type of local chili that we used in our recipe, replacing sausage with ribeye. An indispensable ingredient in almost any such baking is cheese.",
+    "price": "10.00",
+    "dish_type": 17,
+    "cooks": [
+      4
+    ]
+  }
+},
+{
+  "model": "kitchen.dish",
+  "pk": 14,
+  "fields": {
+    "name": "Pizza with peaches, cheese and balsamic",
+    "description": "We suspect that pizza with peaches, cheese and balsamic will definitely appeal to fans of a similar combination of smoked pear and gorgonzola. Fruits and cheeses really seem to be made for each other. Here they are united by a tart sauce woven from balsamic vinegar and honey. Strictly speaking, for pizza you will need not only cheese, but also curd cheese (here it replaces the traditional tomato sauce for pizza) and grated hard cheese, which completes the composition",
+    "price": "8.99",
+    "dish_type": 17,
+    "cooks": [
+      9
+    ]
+  }
+},
+{
+  "model": "kitchen.dish",
+  "pk": 15,
+  "fields": {
+    "name": "Pizza Tarantella",
+    "description": "Naples is considered the birthplace of pizza, from there it gradually spread throughout Italy, and eventually gained fame throughout Europe, and then around the world.",
+    "price": "7.00",
+    "dish_type": 17,
+    "cooks": [
+      9
+    ]
+  }
+},
+{
+  "model": "kitchen.dish",
+  "pk": 16,
+  "fields": {
+    "name": "Dry porcini mushroom soup",
+    "description": "This wonderful, fragrant cream soup made from dried porcini mushrooms will especially appeal to all lovers of thick soups. .",
+    "price": "10.00",
+    "dish_type": 18,
+    "cooks": [
+      9
+    ]
+  }
+},
+{
+  "model": "kitchen.dish",
+  "pk": 17,
+  "fields": {
+    "name": "Solyanka",
+    "description": "Classic hodgepodge soup will go perfectly on the second or third day of the holiday - when people want something hot instead of boring salads. Do you feel the strength to fulfill this wish? The broth requires unhurried thoughtful preparation and the right set of meat on the bone.",
+    "price": "5.00",
+    "dish_type": 18,
+    "cooks": [
+      1
+    ]
+  }
+},
+{
+  "model": "kitchen.dish",
+  "pk": 18,
+  "fields": {
+    "name": "Pork soup",
+    "description": "Soup kharcho with pork is a later version of this dish, in the same Georgia, it is a family food, it is prepared even with chicken, so we can quite afford pork. In all other respects, the recipe is close to the classic one: it includes nuts, hot pepper, and tkemali sauce. Kharcho soup turns out to be very filling, tasty, unusually appetizing.",
+    "price": "7.00",
+    "dish_type": 18,
+    "cooks": [
+      2
+    ]
+  }
+},
+{
+  "model": "kitchen.dishtype",
+  "pk": 1,
+  "fields": {
+    "name": "Pasta"
+  }
+},
+{
+  "model": "kitchen.dishtype",
+  "pk": 6,
+  "fields": {
+    "name": "Steak"
+  }
+},
+{
+  "model": "kitchen.dishtype",
+  "pk": 12,
+  "fields": {
+    "name": "Drinks"
+  }
+},
+{
+  "model": "kitchen.dishtype",
+  "pk": 15,
+  "fields": {
+    "name": "Cake"
+  }
+},
+{
+  "model": "kitchen.dishtype",
+  "pk": 16,
+  "fields": {
+    "name": "Dessert"
+  }
+},
+{
+  "model": "kitchen.dishtype",
+  "pk": 17,
+  "fields": {
+    "name": "Pizza"
+  }
+},
+{
+  "model": "kitchen.dishtype",
+  "pk": 18,
+  "fields": {
+    "name": "Soup"
+  }
+}
+]
