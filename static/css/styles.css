@@ -3,8 +3,10 @@
 body {
   margin: 0;
   box-sizing: border-box;
-  --header-height: 90px;
+  --header-height: 94px;
   --footer-height: 80px;
+  --footer-pad-text: 4px;
+  --footer-font: 16px;
 }
 /* CSS for header */
 .header {
@@ -37,6 +39,10 @@ body {
   padding: 35px 20px;
 }
 /* CSS for main section */
+.content {
+  min-height: calc(100vh - 2 * var(--footer-height) - 2 * var(--footer-pad-text) - var(--footer-font) - var(--header-height));
+}
+
 .intro {
   display: flex;
   flex-direction: column;
@@ -122,4 +128,10 @@ body {
   align-items: center;
   background-color: #302f49;
   padding: var(--footer-height) 80px;
+}
+
+.footer-text {
+  color: #fff;
+  font-size: var(--footer-font);
+  padding: 4px 0;
 }
