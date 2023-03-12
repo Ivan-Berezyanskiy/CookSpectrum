@@ -1,10 +1,8 @@
 from django.contrib.auth import get_user_model
 from django.test import TestCase
-from django.test import RequestFactory
 from django.urls import reverse
 
-from kitchen.models import DishType, Cook, Dish
-from kitchen.views import DishTypeListView
+from kitchen.models import DishType, Dish
 
 DISHTYPE_URL = reverse("kitchen:dish-type-list")
 
