@@ -1,6 +1,6 @@
 # Restaurant Kitchen Service
 
-Django project for managing cars and drivers in the Taxi Service
+Django project for managing dishes and cooks in the Restaurant Kitchen Service
 
 ## Try it!
 
