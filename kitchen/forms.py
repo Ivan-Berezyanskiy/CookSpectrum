@@ -47,7 +47,7 @@ class DishTypeSearchForm(forms.Form):
     )
 
 
-def validate_years_of_experience(years_of_experience) -> int:
+def validate_years_of_experience(years_of_experience: int) -> int:
     if years_of_experience < 0:
         raise ValidationError("Years of experience should be positive number")
     elif years_of_experience > 99:
