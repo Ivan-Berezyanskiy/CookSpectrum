@@ -43,6 +43,9 @@ body {
   min-height: calc(100vh - 2 * var(--footer-height) - 2 * var(--footer-pad-text) - var(--footer-font) - var(--header-height));
 }
 
+.not-intro {
+  margin-left: 20px;
+}
 .intro {
   display: flex;
   flex-direction: column;

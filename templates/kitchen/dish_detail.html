@@ -2,33 +2,35 @@
 {% load crispy_forms_filters %}
 
 {% block content %}
-  <h1>Dish Detail</h1>
-  <h3>Name: {{ dish.name }}</h3>
-  <hr>
-  <h5>Price: {{ dish.price }}</h5>
-  <hr>
-  <h5>Dish type: {{ dish.dish_type.name }}</h5>
-  <hr>
-  <h5>Description: </h5>
-  <p>{{ dish.description }}</p>
-  <hr>
-  <h5>Cooks: </h5>
-  {% for cook in dish.cooks.all %}
-    <p><a href="{% url "kitchen:cook-detail" pk=cook.id %}">{{ cook.username }}</a></p>
-  {% endfor %}
-  <form action="{% url "kitchen:toggle-assign-to-dish" pk=dish.id %}" method="post">
-    {% csrf_token %}
-    {{ form|crispy }}
-    {% if dish in user.dishes.all %}
-      <br>
+  <div class="not-intro">
+    <h1>Dish Detail</h1>
+    <h3>Name: {{ dish.name }}</h3>
+    <hr>
+    <h5>Price: {{ dish.price }}</h5>
+    <hr>
+    <h5>Dish type: {{ dish.dish_type.name }}</h5>
+    <hr>
+    <h5>Description: </h5>
+    <p>{{ dish.description }}</p>
+    <hr>
+    <h5>Cooks: </h5>
+    {% for cook in dish.cooks.all %}
+      <p><a href="{% url "kitchen:cook-detail" pk=cook.id %}">{{ cook.username }}</a></p>
+    {% endfor %}
+    <form action="{% url "kitchen:toggle-assign-to-dish" pk=dish.id %}" method="post">
+      {% csrf_token %}
+      {{ form|crispy }}
+      {% if dish in user.dishes.all %}
+        <br>
 
-      <input type="submit" value="Delete me from this dish" class="btn btn-danger">
-    {% else %}
-      <br>
-      <input type="submit" value="Assign me to this dish" class="btn btn-primary">
-    {% endif %}
-  </form>
-  <br>
-  <a class="btn btn-primary" href="{% url "kitchen:dish-update" pk=dish.id %}">Update</a>
-  <a class="btn btn-danger" href="{% url "kitchen:dish-delete" pk=dish.id %}">Delete</a>
+        <input type="submit" value="Delete me from this dish" class="btn btn-danger">
+      {% else %}
+        <br>
+        <input type="submit" value="Assign me to this dish" class="btn btn-primary">
+      {% endif %}
+    </form>
+    <br>
+    <a class="btn btn-primary" href="{% url "kitchen:dish-update" pk=dish.id %}">Update</a>
+    <a class="btn btn-danger" href="{% url "kitchen:dish-delete" pk=dish.id %}">Delete</a>
+  </div>
 {% endblock %}
