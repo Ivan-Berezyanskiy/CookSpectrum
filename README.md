@@ -28,13 +28,13 @@ python manage.py runserver #starts Django Server
 ```
 
 ## Secret key
-In main folder you'll find a file .env_sample. In this file an example of SECRET_KEY is stored, required for the project.
-You may need create a file .env and write here you secret key as in example.
+In the main folder, you'll find a file .env_sample. In this file, an example of SECRET_KEY is stored, required for the project.
+You may need to create a file .env and write here your secret key as in example.
 
 ## Features
 
 * Authentication functionality for Cook/User
-* Managing dishes, cooks & dish types directly from website interface
+* Managing dishes, cooks & dish types directly from the website interface
 * Powerful admin panel for advanced managing
 
 ## Demo
